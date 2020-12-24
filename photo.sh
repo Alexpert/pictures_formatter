@@ -9,13 +9,18 @@ folder_handler () {
     identity=$(identify $picture 2> /dev/null)
     if [ "$identity" != '' ]
       then
-        
-        echo $picture' is valid'
+        resolution=$(echo $identity | cut -d' ' -f3)
+        echo $picture $resolution
+        if [ $(echo $resolution | cut -d'x' -f1) \> $(echo $resolution | cut -d'x' -f2) ]
+          then
+            echo "paysage"
+          else
+            echo "portrait"
+          fi
+        picture=${picture/.\//}
+        picture=${picture/\/export\//_}
+        picture=${picture/\//_}
       fi
-    picture=${picture/.\//}
-    picture=${picture/\/export\//_}
-    picture=${picture/\//_}
-
   done
 }
 
