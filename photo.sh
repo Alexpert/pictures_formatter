@@ -2,7 +2,6 @@
 
 folders=($(find -type d -name "export"))
 
-echo "toto"
 
 folder_handler () {
   for picture in $1/*.jpg
