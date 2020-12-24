@@ -2,6 +2,7 @@
 
 folders=($(find -type d -name "export"))
 
+
 folder_handler () {
   for picture in $1/*.jpg
   do
